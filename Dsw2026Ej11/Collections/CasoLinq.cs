@@ -44,15 +44,15 @@ public class CasoLinq
     }
 
     // 5. lista de libros con Id mayor a 15, con Where y ToList
-    public List<Libro> GetListById()
+    public IEnumerable<Libro> GetListById()
     {
-        return libros.Where(libro => libro.Id > 15).ToList();
+        return libros.Where(libro => libro.Id > 15);
     }
 
     // 6.lista de cada libro con su titulo y precio en formato moneda (con .Select y .ToList)
-    public List<string> GetLibros()
+    public IEnumerable<string> GetLibros()
     {
-        return libros.Select(libro => $"{libro.Titulo} - {libro.Precio:C}").ToList();
+        return libros.Select(libro => $"{libro.Titulo} - {libro.Precio:C}");
     }
 
     // 7. libro con el precio mas alto
@@ -68,18 +68,18 @@ public class CasoLinq
     }
 
     // 9. libros cuyo precio sea mayor al promedio
-    public List<Libro> GetMayorPromedio()
+    public IEnumerable<Libro> GetMayorPromedio()
     {
         // sacamos el promedio con el metodo que creamos (.Average)
         decimal promedio = GetPromedioPrecios();
 
         // .Where para filtrar
-        return libros.Where(libro => libro.Precio > promedio).ToList();
+        return libros.Where(libro => libro.Precio > promedio);
     }
 
     // 10. libros ordenados por titulo de forma descendente
-    public List<Libro> GetOrdenadosPorTitulo()
+    public IEnumerable<Libro> GetOrdenadosPorTitulo()
     {
-        return libros.OrderByDescending(libro => libro.Titulo).ToList();
+        return libros.OrderByDescending(libro => libro.Titulo);
     }
 }
