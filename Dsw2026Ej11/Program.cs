@@ -6,6 +6,7 @@ internal class Program
 {
     static void Main(string[] args)
     {
+        Console.OutputEncoding = System.Text.Encoding.UTF8; //para evitar los ? al mostrar los precios
         bool salir = false;
 
         while (!salir)
